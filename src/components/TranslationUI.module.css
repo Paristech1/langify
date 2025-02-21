@@ -1,0 +1,101 @@
+.inputContainer {
+  position: relative;
+}
+
+.inputContainer:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem; /* matches the rounded-xl */
+  padding: 2px; /* thickness of the glow */
+  background: linear-gradient(35deg, #4DEEEA, transparent, #4DEEEA);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.inputContainer:hover:before {
+  opacity: 1;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    background: linear-gradient(35deg, #4DEEEA, transparent, #4DEEEA);
+  }
+  50% {
+    background: linear-gradient(180deg, transparent, #4DEEEA, transparent);
+  }
+  100% {
+    background: linear-gradient(35deg, #4DEEEA, transparent, #4DEEEA);
+  }
+}
+
+.translateButton {
+  border: 1px solid rgba(77, 238, 234, 0.3);
+  box-shadow: 0 0 15px rgba(77, 238, 234, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.translateButton:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(77, 238, 234, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.translateButton:after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg,
+    transparent 40%,
+    rgba(77, 238, 234, 0.2),
+    rgba(77, 238, 234, 0.3),
+    rgba(77, 238, 234, 0.2),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.translateButton:hover:before {
+  transform: translateX(100%);
+}
+
+.translateButton:hover {
+  border-color: rgba(77, 238, 234, 0.5);
+  box-shadow: 
+    0 0 20px rgba(77, 238, 234, 0.2),
+    0 0 30px rgba(77, 238, 234, 0.1);
+}
+
+.translateButton:hover:after {
+  opacity: 1;
+  animation: borderGlow 2s linear infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    clip-path: inset(0 0 98% 0);
+  }
+  25% {
+    clip-path: inset(0 98% 0 0);
+  }
+  50% {
+    clip-path: inset(98% 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 98%);
+  }
+} 
