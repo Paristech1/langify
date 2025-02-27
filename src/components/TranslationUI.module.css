@@ -98,4 +98,54 @@
   75% {
     clip-path: inset(0 0 0 98%);
   }
+}
+
+/* Markdown content styling */
+.markdownOutput {
+  max-width: none;
+  line-height: 1.6;
+}
+
+.markdownOutput :global(h3) {
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  color: #4DEEEA;
+  font-weight: 600;
+}
+
+.markdownOutput :global(table) {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.markdownOutput :global(table th) {
+  background-color: rgba(77, 238, 234, 0.1);
+  border-bottom: 1px solid rgba(77, 238, 234, 0.3);
+  padding: 0.75em;
+  text-align: left;
+  font-weight: 600;
+}
+
+.markdownOutput :global(table td) {
+  padding: 0.75em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.markdownOutput :global(hr) {
+  margin: 1.5em 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(77, 238, 234, 0.3), transparent);
+}
+
+.markdownOutput :global(p) {
+  margin: 1em 0;
+}
+
+.markdownOutput :global(strong) {
+  color: rgba(77, 238, 234, 0.9);
+  font-weight: 600;
 } 
